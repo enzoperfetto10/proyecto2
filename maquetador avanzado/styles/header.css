@@ -1,0 +1,86 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: -0.5rem -0.5rem 0;
+  border: 0;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(to right, #c36, #448);
+}
+nav a {
+  display: block;
+  margin: 0;
+  border: 0;
+  padding: 0.5rem;
+  color: #eee;
+  text-decoration: none;
+}
+nav a:hover {
+  text-shadow: 0 0 0.5rem #eee;
+}
+nav button {
+  border: 0.1rem solid #eee;
+  color: #eee;
+  background-color: transparent;
+}
+nav button:hover {
+  color: #c36;
+  background-color: #eee;
+}
+@media screen and (min-width: 768px) {
+  nav button {
+    display: none;
+  }
+}
+nav .menu {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+}
+nav .menu.active {
+  max-height: 640px;
+}
+@media screen and (min-width: 768px) {
+  nav .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: auto;
+    max-height: 640px;
+  }
+}
+#header {
+  margin: 0 -0.5rem;
+  border: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: min(100vh, 640px);
+  color: #eee;
+  background-color: #448;
+  font-size: calc(2vw + 0.5rem);
+}
+#header .header h1,
+#header .header p {
+  text-shadow: 0 0 2vw #333;
+}
+.unstyled,
+nav .menu,
+#header .header h1,
+#header .header p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}

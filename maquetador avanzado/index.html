@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="
+			width=device-width, 
+			initial-scale=1,
+			maximum-scale=3">
+	<title>Maquetado Avanzado</title>
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+	<!-- Navegacion: Links mas importantes -->
+	<nav>
+		<a href="" class="logo">css</a>
+		<button class="btn">&equiv;</button>
+		<ul class="menu">
+			<li><a href="">Link 1</a></li>
+			<li><a href="">Link 2</a></li>
+			<li><a href="">Link 3</a></li>
+			<li><a href="">Link 4</a></li>
+		</ul>
+	</nav>
+	<!-- Cabecera: Contenido Introductorio -->
+	<header id="header">
+		<div class="header">
+			<h1>Maquetado Avanzado</h1>
+			<p>sass | less</p>
+		</div>
+	</header>
+	<!-- Contenido: Informacion relevante para el usuario -->
+	<main>
+		<section>
+			<header class="header">
+				<h2>Nuevos Elementos HTML5</h2>
+				<p>Incorporaciones al estandar</p>
+			</header>
+			<p>
+				Con el surgimiento de html5 se agregaron nuevas caracteristicas e implementaron nuevas etiquetas, entre los elementos que se incorporaron se encuentran herramientas estadisticas, la posibilidad de reproducir contenido multimedia de forma nativa y ademas se agrego la capacidad de poder realizar distintos tipos de graficos dentro del documento (vectoriales y mapa de bits). Si bien en la actualidad la mayoria de los navegadores soporta estos elementos, podemos corrobar si los mismos son compatible desde el sitio <a href="https://caniuse.com" target="_blank">Can I Use</a>
+			</p>
+			<article>
+				<h3>Estadisticas</h3>
+				<p>
+					Cuando necesitamos comparar valores podemos implementar 2 tipos de etiquetas: <strong>&lt;progress></strong> que debe utilizar cuando estamos realizando una tarea que aun no fue finalizada, para evaluar el avance durante la misma, <em>ej: la capacitacion</em>; y <strong>&lt;meter></strong> que debe utilizar cuando nuestra tarea fue finalizada y contamos con valores definitivos, <em>ej: un examen</em>
+				</p>
+				<ul class="example">
+					<li>
+						<strong>Progress</strong>
+						<ul>
+							<li>
+								<progress></progress>
+								<span>value = undefined</span>
+							</li>
+							<li>
+								<progress value="20" max="100"></progress>
+								<span>value="20"; max="100"</span>
+							</li>
+							<li class="bar">
+								<progress max="100"></progress>
+								<input type="number" min="0" max="100">
+								<span>value=javaScript</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<strong>Meter</strong>
+						<ul>
+							<li>
+								<meter value="30" low="40" high="70" optimum="90" max="100"></meter>
+								<span>
+									<strong>value</strong> < low < high < optimum
+								</span>
+							</li>
+							<li>
+								<meter value="60" low="40" high="70" optimum="90" max="100"></meter>
+								<span>
+									low < <strong>value</strong> < high < optimum
+								</span>
+							</li>
+							<li>
+								<meter value="90" low="40" high="70" optimum="90" max="100"></meter>
+								<span>
+									low < high < <strong>value</strong> < optimum
+								</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</article>
+			<article>
+				<h3>API's de Dibujo</h3>
+				<p>
+					Los navegadores actuales permiten la implementacion de etiquetas como <strong>&lt;svg></strong> (scalable vector graphics) que permite la realizacion de graficos vectoriales, es decir, imagenes compuestas de lineas y curvas que se calculan matematicamente; la ventaja de las mismas es que no se ven afectadas por los cambios de tamaño o resolucion y utilizan <em>XML</em> como lenguaje. 
+				</p>
+				<p>
+					Por otro lado <strong>&lt;canvas></strong> (Lienzo) permite la creacion de graficos raster (mapa de bits) o imagenes pixelares dentro de nuestro documento utilizando como lenguaje <em>JavaScript</em> permitiendonos realizar interacciones con el usuario, gracias a las caracteristicas del mismo.
+				</p>
+				<div class="example">
+					<svg width="300" height="300">
+						<rect 
+							x="50" y="50" 
+							width="100" height="100"
+							fill="#448" />
+						<circle 
+							r="50" cx="150" cy="150" 
+							fill="rgba(204,51,51,.5)" />
+						<polygon 
+							points="150,50 150,150 250,100" 
+							fill="hsla(120, 50%, 50%, .5)" />
+						<text style="font: bold 1rem calibri, sans-serif;"
+							x="50" y="250" fill="none" stroke="#333">
+							SVG (Graficos Vectoriales)
+						</text>
+					</svg>
+					<canvas id="canvas" width="300" height="300"></canvas>
+				</div>
+			</article>
+		</section>
+		<section>
+			<header class="header">
+				<h2>Preprocesadores</h2>
+				<p>Pseudolenguajes de CSS</p>
+			</header>
+			<p>
+				Son herramientas que permiten generar hojas de estilos a partir de una sintasis particular, utilizan algun lenguaje de programacion como herramienta de compilacion para realizar dicha tarea. Estos programas poseen las mismas caracteristicas que el lenguaje CSS, pero agregan alguna funcionalidades que el mismo no posee, ademas que su sintaxis suele ser mas corta en comparacion de la hoja de estilos resultante.
+			</p>
+			<article>
+				<h3>LESS (Leaner Style Sheets)</h3>
+				<p>
+					Preprocesador que utiliza Javascript como lenguaje de compilacion, ademas brinda a las hojas de estilos algunas caracteristicas del mismo como la asincronicidad e invocacion de metodos. Para instalarlo como aplicacion, debemos ingresar en la consola el comando de nodejs <em>npm i -g less</em> y para compilar las hojas de estilos deberemos ingresar el comando <em>lessc "input.less" "output.css"</em>
+				</p>
+				<p>
+					El unico inconveniente que se nos presenta a la hora de trabajar con LESS es que este no posee un metodo de observacion, es decir, que debemos compilar nuestros archivos cada vez que realicemos cambios. Una solucion a esto es utilizar un plugin conocido como Less-Watch-Compiler que lo instalamos utilizando el comando <em>npm i -g less-watch-compiler</em> y para compilar nuestros archivos ingresamos el comando <em>less-watch-compiler "input/" "output/ "file.less"</em>
+				</p>
+			</article>
+			<article>
+				<h3>SASS (Syntactically Awesome Styles Sheets)</h3>
+				<p>
+					Preprocesador que utiliza Ruby como lenguaje de compilacion, a diferencia de LESS, no posee la capacidad de invocar funciones o metodos si estos no fueron previamente declarados. Varia en la forma que se generan los mixins y distingue con sus sintaxis entre los diferentes tipos de elementos.
+				</p>
+				<p>
+					Para instalarlo debemos ingresar el comando de NodeJS <em>npm i -g sass</em> y para compilar nuestros archivos debemos ingresar el siguiente comando <em>sass --watch "input.scss" "output.css"</em> el cual ofrece un metodo de observacion para una compilacion automatica. Existen 2 formatos de archivo, siendo el primero <strong>sass</strong>, que no utiliza la mayoria de los signos y se maneja con la tabulacion; y luego esta <strong>scss</strong> cuya sintaxis es similar a css o less.
+				</p>
+				<ul class="example">
+					<li class="bg-primary">primary</li>
+					<li class="bg-secondary">secondary</li>
+					<li class="bg-info">info</li>
+					<li class="bg-light">light</li>
+					<li class="bg-dark">dark</li>
+					<li class="bg-danger">danger</li>
+					<li class="bg-warning">warning</li>
+					<li class="bg-success">success</li>
+				</ul>
+			</article>
+		</section>
+	</main>
+	<footer id="footer">
+		<form id="contact">
+			<h2>Dejanos tu consulta</h2>
+			<label for="contactName">Ingrese su Nombre</label>
+			<input 
+				id="contactName" 
+				name="contactName"  
+				type="text"
+				maxlength="50" 
+				pattern="[A-Z a-z]{3,50}"
+				placeholder="Nombre(*): Cristian Racedo" 
+				required>
+			<div class="valid">
+				Ingrese su nombre solamente con letras y espacios. 
+				El mismo debe poseer entre 3 y 50 caracteres.
+			</div>
+			<label for="contactEmail">Ingrese su Correo</label>
+			<input 
+				id="contactEmail" 
+				name="contactEmail" 
+				type="email"
+				minlength="8"
+				placeholder="Correo(*): cristiandracedo@hotmail.com" 
+				required>
+			<div class="valid">
+				Ingrese su correo respetando el formato "usuario@servidor". 
+				La direccion debe poseer por lo menos 8 caracteres.
+			</div>
+			<label for="contactPhone">Ingrese su Telefono</label>
+			<input 
+				type="tel" 
+				id="contactPhone" 
+				name="contactPhone" 
+				pattern="([0-9]{6,20})|([\(]\d{2,8}[\)]\d{3,6}[\-]\d{3,6})"
+				placeholder="Telefono(*): (5411)0303-4567" 
+				required>
+			<div class="valid">
+				Ingrese su numero como se muestra: (5411)0303-4567, utilizando un guion cada 3 a 6 digitos. Tambien puede ingresar solamente numeros
+			</div>
+			<label for="contactConsult">Ingrese su Consulta</label>
+			<textarea 
+			 	id="contactConsult"
+				name="contactConsult" 
+				minlength="10" 
+				maxlength="200" 
+				placeholder="Consulta(*): Buenas, necesito un presupuesto" 
+				required></textarea>
+			<button>Enviar</button>
+		</form>
+		<div class="map">
+			<iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.070111678329!2d-58.37812478519536!3d-34.60238856493385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccacc473596c3%3A0x568d6d5f7f1f535d!2sEducaci%C3%B3nIT!5e0!3m2!1ses-419!2sar!4v1635603856082!5m2!1ses-419!2sar" width="600" 
+				loading="lazy">
+			</iframe>
+			<button class="icon icon-max"></button>
+		</div>
+		<div class="social">
+			<a class="facebook" href="https://facebook.com" target="_blank"></a>
+			<a class="instagram" href="https://instagram.com" target="_blank"></a>
+			<a class="twitter" href="https://twitter.com" target="_blank"></a>
+			<a class="github" href="https://github.com/c215714n/EducacionIT/tree/mav-s10" target="_blank"></a>
+		</div>
+		<p class="copy">
+			&copy;2021 Todos los derechos reservados
+		</p>
+	</footer>
+	<!-- Script JS -->
+	<script src="scripts/main.js"></script>
+</body>
+
+</html>

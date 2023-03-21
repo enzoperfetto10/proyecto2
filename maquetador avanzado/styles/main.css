@@ -1,0 +1,9 @@
+/*Importaciones*/
+@import url('header.css'); /*nav y header*/
+@import url('content.css');
+@import url('footer.css');
+/*Reglas Universales*/
+*{
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
